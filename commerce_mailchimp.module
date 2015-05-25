@@ -13,11 +13,11 @@ function commerce_mailchimp_init() {
   $time = REQUEST_TIME + 60 * 60 * 24 * variable_get('commerce_mailchimp_cookie_time', 30);
 
   if (isset($_REQUEST['mc_cid'])) {
-    setcookie('mailchimp_campaign_id', trim($_REQUEST['mc_cid']), $time);
+    setcookie(variable_get('commerce_mailchimp_campaign_cookie_name', 'mailchimp_campaign_id'), trim($_REQUEST['mc_cid']), $time);
   }
-  
+
   if (isset($_REQUEST['mc_eid'])) {
-    setcookie('mailchimp_email_id', trim($_REQUEST['mc_eid']), $time);
+    setcookie(variable_get('commerce_mailchimp_email_cookie_name', 'mailchimp_email_id'), trim($_REQUEST['mc_eid']), $time);
   }
 }
 
